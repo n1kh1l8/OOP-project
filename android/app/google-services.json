@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "177454561848",
+    "project_id": "spree-app-a8c89",
+    "storage_bucket": "spree-app-a8c89.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177454561848:android:ccd70824addd5db16084cd",
+        "android_client_info": {
+          "package_name": "com.n1khil.abcd"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177454561848-22s2s42uima0rb14atikfkveae6jrjlb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-GGIpLKXD55sZC0SNE5Ti0yVG6vkRjcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177454561848-22s2s42uima0rb14atikfkveae6jrjlb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
