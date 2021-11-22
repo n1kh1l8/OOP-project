@@ -288,8 +288,8 @@ class DatabaseService {
     }).toList();
   }
 
-  Event _eventDataFromSnapshot(DocumentSnapshot snapshot) {
-    return Event(
+  EVent _eventDataFromSnapshot(DocumentSnapshot snapshot) {
+    return EVent(
         no_of_participants: snapshot.get('no_of_participants'),
         dates: snapshot.get('dates'),
         description: snapshot.get('description'),
@@ -301,9 +301,9 @@ class DatabaseService {
         winners: snapshot.get('winners'));
   }
 
-  List<Event> _eventListFromSnapshot(QuerySnapshot snapshot) {
+  List<EVent> _eventListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
-      return Event(
+      return EVent(
           no_of_participants: doc.get('no_of_participants') ?? 0,
           dates: doc.get('dates') ?? [],
           description: doc.get('description') ?? '',
@@ -401,11 +401,11 @@ class DatabaseService {
         .map(_announcementDataFromSnapshot);
   }
 
-  Stream<List<Event>> get eventsList {
+  Stream<List<EVent>> get eventsList {
     return eventsCollection.snapshots().map(_eventListFromSnapshot);
   }
 
-  Stream<Event> get eventData {
+  Stream<EVent> get eventData {
     return eventsCollection
         .doc(event_uid)
         .snapshots()
