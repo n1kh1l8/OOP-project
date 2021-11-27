@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:abcd/screens/authenticate/register.dart';
 import 'package:abcd/screens/authenticate/sign_in.dart';
 import 'package:flutter/material.dart';
