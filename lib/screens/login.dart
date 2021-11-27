@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:abcd/screens/SignUp.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               padding: EdgeInsets.only(left: 35, top: 130),
               child: Text(
-                'Hello\nthere!!!',
+                'Sign\nIn',
                 style: TextStyle(color: Colors.white, fontSize: 40),
               ),
             ),
@@ -88,6 +88,28 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           SizedBox(
                             height: 40,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'If you are not registered:',
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.w700,color: Colors.red),
+                              ),
+                              CircleAvatar(
+                                radius: 20,
+                                backgroundColor: Colors.white,
+                                child: IconButton(
+                                    color: Colors.red[800],
+                                    onPressed: () {
+                                      Navigator.pushNamed(context,'SignUp');
+                                    },
+                                    icon: Icon(
+                                      Icons.arrow_forward,
+                                    )),
+                              )
+                            ],
                           ),
                           // Row(
                           //   mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
             Container(
               padding: EdgeInsets.only(left: 35, top: 130),
               child: Text(
-                'Hello\nthere!!!',
+                'Sign\nup',
                 style: TextStyle(color: Colors.white, fontSize: 40),
               ),
             ),
@@ -89,6 +89,7 @@ class _LoginPageState extends State<LoginPage> {
                           SizedBox(
                             height: 40,
                           ),
+
                           // Row(
                           //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           //   children: [
