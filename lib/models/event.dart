@@ -4,7 +4,7 @@ class EVent {
   final List<String> dates;
   final List<String> times;
   final String status;
-  final List<String> images;
+  final String images;
   final String description;
   final String event_uid;
   final List<String> winners;
