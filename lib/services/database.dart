@@ -76,7 +76,7 @@ class DatabaseService {
   Future addProfileData(
       String name,
       String email_id,
-      int phone_no,
+      String phone_no,
       String college,
       String gender,
       Map<String, String> registration_nos,
@@ -88,13 +88,29 @@ class DatabaseService {
         .set(<String, dynamic>{
           "name": name,
           "email_id": email_id,
-          "phone_no": phone_no.toInt(),
+          "phone_no": phone_no,
           "college": college,
           "gender": gender,
           "registrations_nos": registration_nos,
           "events": events_registered
         })
         .then((value) => print("added profile data"))
+        .catchError((error) {
+          return error;
+        });
+  }
+
+  Future editRegistrationNosData(Map<String, String> registration_nos,
+      List<String> events_registered) async {
+    return await userCollection
+        .doc(uid)
+        .collection("Profile")
+        .doc("ProfileData")
+        .update(<String, dynamic>{
+          "registrations_nos": registration_nos,
+          "events": events_registered
+        })
+        .then((value) => print("edited registration data"))
         .catchError((error) {
           return error;
         });
@@ -288,8 +304,8 @@ class DatabaseService {
     }).toList();
   }
 
-  EVent _eventDataFromSnapshot(DocumentSnapshot snapshot) {
-    return EVent(
+  Event _eventDataFromSnapshot(DocumentSnapshot snapshot) {
+    return Event(
         no_of_participants: snapshot.get('no_of_participants'),
         dates: snapshot.get('dates'),
         description: snapshot.get('description'),
@@ -301,13 +317,13 @@ class DatabaseService {
         winners: snapshot.get('winners'));
   }
 
-  List<EVent> _eventListFromSnapshot(QuerySnapshot snapshot) {
+  List<Event> _eventListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
-      return EVent(
+      return Event(
           no_of_participants: doc.get('no_of_participants') ?? 0,
           dates: doc.get('dates') ?? [],
           description: doc.get('description') ?? '',
-          event_uid: event_uid,
+          event_uid: doc.get('event_uid') ?? '',
           images: doc.get('images') ?? [],
           name: doc.get('name') ?? '',
           status: doc.get('status') ?? '',
@@ -401,11 +417,11 @@ class DatabaseService {
         .map(_announcementDataFromSnapshot);
   }
 
-  Stream<List<EVent>> get eventsList {
+  Stream<List<Event>> get eventsList {
     return eventsCollection.snapshots().map(_eventListFromSnapshot);
   }
 
-  Stream<EVent> get eventData {
+  Stream<Event> get eventData {
     return eventsCollection
         .doc(event_uid)
         .snapshots()

@@ -1,7 +1,7 @@
 class Profile {
   final String name;
   final String email_id;
-  final int phone_no;
+  final String phone_no;
   final String college;
   final String gender;
   final Map<String, String> registration_nos;

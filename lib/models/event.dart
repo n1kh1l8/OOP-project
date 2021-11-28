@@ -1,4 +1,4 @@
-class EVent {
+class Event {
   final int no_of_participants;
   final String name;
   final List<String> dates;
@@ -8,7 +8,7 @@ class EVent {
   final String description;
   final String event_uid;
   final List<String> winners;
-  EVent(
+  Event(
       {required this.no_of_participants,
       required this.dates,
       required this.description,
