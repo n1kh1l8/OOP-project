@@ -5,7 +5,7 @@ class Profile {
   final String college;
   final String gender;
   final Map<String, String> registration_nos;
-  final List<String> events_registered;
+  final String events_registered;
   Profile(
       {required this.college,
       required this.email_id,

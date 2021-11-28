@@ -250,7 +250,7 @@ class _HomeState extends State<Home> {
                   phone_no: '',
                   gender: '',
                   registration_nos: {},
-                  events_registered: []),
+                  events_registered: ''),
               child: ProfilePage()),
           StreamProvider<List<Leaderboard>>.value(
               value: DatabaseService().leaderboardList,

@@ -37,7 +37,7 @@ class _EventsTileState extends State<EventsTile> {
                           phone_no: '',
                           gender: '',
                           registration_nos: {},
-                          events_registered: []),
+                          events_registered: ''),
                       child: EventDetails(event: widget.event))));
         },
         child: Card(

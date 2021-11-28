@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:abcd/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class AnnouncementsPage extends StatefulWidget {
@@ -10,11 +11,14 @@ class AnnouncementsPage extends StatefulWidget {
 }
 
 class _AnnouncementsPageState extends State<AnnouncementsPage> {
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red,
-      body: Center(child: Text("Announcements")),
+      body: Center(child: GestureDetector(onTap: () async {
+        await _auth.signOut();
+      },child: Text("Announcements"))),
     );
   }
 }

@@ -212,6 +212,8 @@ class _ProfilePageState extends State<ProfilePage> {
           );
 
             } else {
+            print("1 - ${snapshot.hasData}");
+            print("2 - ${snapshot.connectionState}");
             return Container(
               child: Text(
                 "Loading",
