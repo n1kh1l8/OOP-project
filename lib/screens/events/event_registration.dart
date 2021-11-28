@@ -312,6 +312,9 @@ class _EventRegistrationState extends State<EventRegistration> {
                                                     event_uid: widget.event_uid)
                                                 .editNoOfParticipantsInEvent(
                                                     new_no);
+                                          setState(() {
+                                            Navigator.pop(context);
+                                          });
                                           }
                                         }
                                       },

@@ -41,6 +41,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                 textAlign: TextAlign.center,
                 style: GoogleFonts.stylish(
                   textStyle: TextStyle(color: Colors.blue, letterSpacing: 1.5),
+                  fontSize: 20,
                 ),
 
 
