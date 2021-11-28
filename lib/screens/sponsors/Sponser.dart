@@ -12,7 +12,7 @@ class Sponser extends StatefulWidget {
 class _SponserState extends State<Sponser> {
   @override
   Widget build(BuildContext context) {
-    final sponsors = Provider.of<List<Sponsor>>(context);
+    // final sponsors = Provider.of<List<Sponsor>>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -39,15 +39,39 @@ class _SponserState extends State<Sponser> {
                   color: Colors.black,
                 ),
                 Text(
-                  'TITLE SPONSOR- ${sponsors[0].company_name}',
+                  'TITLE SPONSOR- CocaCola',
                   style: TextStyle(
                     color: Colors.black,
                     letterSpacing: 2.0,
                   ),
                 ),
                 Text(
-                  // 'Spree ’21 is proud to announce PokerStars as the Official Title Sponsor of Rook ’n Rule 2.0, and our official Poker Partner. You’ll find the best tournaments and games here, with secure deposits, fast withdrawals and award winning software. You can practice your poker skills with Play-money, or can join games with real money. There is no better place to learn and play Poker.',
-                  sponsors[0].text,
+                   'Spree ’21 is proud to announce PokerStars as the Official Title Sponsor of Rook ’n Rule 2.0, and our official Poker Partner. You’ll find the best tournaments and games here, with secure deposits, fast withdrawals and award winning software. You can practice your poker skills with Play-money, or can join games with real money. There is no better place to learn and play Poker.',
+                  //sponsors[0].text,
+                  style: TextStyle(
+                    color: Colors.black,
+                    letterSpacing: 1.0,
+                    fontSize: 15.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                // SizedBox(
+                //   height: 10.0,
+                // ),
+                // Center(child: Image(image: NetworkImage("https://firebasestorage.googleapis.com/v0/b/spree-app-a8c89.appspot.com/o/Sponsors%2FSponsor1%2FPokerstars-app-download.jpeg?alt=media&token=6c7125bb-c0dd-4d3a-b6dd-7015974f34d0"),)),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Text(
+                  'RESTAURANT PARTNER- PayTM',
+                  style: TextStyle(
+                    color: Colors.black,
+                    letterSpacing: 2.0,
+                  ),
+                ),
+                Text(
+                   'Spree ’21, is proud to associate with Sale and Pepe as the Official Restaurant Partner for Rook ’n Rule 2.0. Sale and Pepe, famous for its authentic Neapolitan pizzas, is an Ahmedabad based Restaurant. Twice Winner of the Times food award, it is one of the best eateries in town, and a must go to!',
+                  //sponsors[1].text,
                   style: TextStyle(
                     color: Colors.black,
                     letterSpacing: 1.0,
@@ -59,15 +83,15 @@ class _SponserState extends State<Sponser> {
                   height: 20.0,
                 ),
                 Text(
-                  'RESTAURANT PARTNER- ${sponsors[1].company_name}',
+                  'MERCHANDISE PARTNER- Unilever',
                   style: TextStyle(
                     color: Colors.black,
                     letterSpacing: 2.0,
                   ),
                 ),
                 Text(
-                  // 'Spree ’21, is proud to associate with Sale and Pepe as the Official Restaurant Partner for Rook ’n Rule 2.0. Sale and Pepe, famous for its authentic Neapolitan pizzas, is an Ahmedabad based Restaurant. Twice Winner of the Times food award, it is one of the best eateries in town, and a must go to!',
-                  sponsors[1].text,
+                   'Spree ’21 is glad to associate with Kambo Handicrafts as the Official Merchandise Partner for Rook ’n Rule 2.0. Based out of Amritsar, Kambo handicrafts has an extensive range of chess boards, wooden handicrafts and toys. Their have a wide range of skilfully produced items, which are supplied throughout the country.',
+                  //sponsors[2].text,
                   style: TextStyle(
                     color: Colors.black,
                     letterSpacing: 1.0,
@@ -79,35 +103,15 @@ class _SponserState extends State<Sponser> {
                   height: 20.0,
                 ),
                 Text(
-                  'MERCHANDISE PARTNER- ${sponsors[2].company_name}',
+                  'SAVINGS PARTNER- YouTube',
                   style: TextStyle(
                     color: Colors.black,
                     letterSpacing: 2.0,
                   ),
                 ),
                 Text(
-                  // 'Spree ’21 is glad to associate with Kambo Handicrafts as the Official Merchandise Partner for Rook ’n Rule 2.0. Based out of Amritsar, Kambo handicrafts has an extensive range of chess boards, wooden handicrafts and toys. Their have a wide range of skilfully produced items, which are supplied throughout the country.',
-                  sponsors[2].text,
-                  style: TextStyle(
-                    color: Colors.black,
-                    letterSpacing: 1.0,
-                    fontSize: 15.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
-                Text(
-                  'SAVINGS PARTNER- ${sponsors[3].company_name}',
-                  style: TextStyle(
-                    color: Colors.black,
-                    letterSpacing: 2.0,
-                  ),
-                ),
-                Text(
-                  // 'Spree ’21 is happy to announce GrabOn as the Official Savings Partner of Rook ’n Rule 2.0. Coupons are countless, Deals are innumerable, Savings are priceless with GrabOn. Find Latest Coupons & Offers For Online Shopping Sites in India. GrabOn ensures that you get the right coupon codes, promo codes and deals, whenever you need them!',
-                  sponsors[3].text,
+                   'Spree ’21 is happy to announce GrabOn as the Official Savings Partner of Rook ’n Rule 2.0. Coupons are countless, Deals are innumerable, Savings are priceless with GrabOn. Find Latest Coupons & Offers For Online Shopping Sites in India. GrabOn ensures that you get the right coupon codes, promo codes and deals, whenever you need them!',
+                  //sponsors[3].text,
                   style: TextStyle(
                     color: Colors.black,
                     letterSpacing: 1.0,

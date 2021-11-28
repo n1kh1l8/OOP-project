@@ -41,6 +41,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final user = Provider.of<UserClass?>(context);
 
+    Stream getProfile() async* {
+      yield await DatabaseService(uid: user!.uid).profileData;
+    }
+
     return Scaffold(
       backgroundColor: Colors.blue,
       appBar: AppBar(
@@ -242,15 +246,21 @@ class _HomeState extends State<Home> {
               initialData: <Event>[],
               child: Schedule()),
           StreamProvider<Profile>.value(
+              // value: DatabaseService(uid: "UxkvHxjg8dO9308l80qO3KzyX3K3")
+              //     .profileData,
               value: DatabaseService(uid: user!.uid).profileData,
+              catchError: (context, error) {
+                throw "$error";
+              },
+              // ignore: void_checks
               initialData: Profile(
-                  name: '',
-                  college: '',
-                  email_id: '',
-                  phone_no: '',
-                  gender: '',
+                  name: 'Name',
+                  college: 'College',
+                  email_id: 'Email ID',
+                  phone_no: '999999999',
+                  gender: 'M',
                   registration_nos: {},
-                  events_registered: []),
+                  events_registered: ''),
               child: ProfilePage()),
           StreamProvider<List<Leaderboard>>.value(
               value: DatabaseService().leaderboardList,

@@ -351,10 +351,11 @@ class DatabaseService {
   }
 
   Stream<Profile> get profileData {
+    print("$uid");
     return userCollection
         .doc(uid)
         .collection("Profile")
-        .doc('ProfileData')
+        .doc("ProfileData")
         .snapshots()
         .map(_profileDataFromSnapshot);
   }
