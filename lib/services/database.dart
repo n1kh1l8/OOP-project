@@ -1,5 +1,4 @@
 import 'package:abcd/models/about_us.dart';
-import 'package:abcd/models/announcement.dart';
 import 'package:abcd/models/event.dart';
 import 'package:abcd/models/history.dart';
 import 'package:abcd/models/leaderboard.dart';
@@ -286,23 +285,7 @@ class DatabaseService {
     }).toList();
   }
 
-  Announcement _announcementDataFromSnapshot(DocumentSnapshot snapshot) {
-    return Announcement(
-        date: snapshot.get('date'),
-        text: snapshot.get('text'),
-        headline: headline,
-        time: snapshot.get('time'));
-  }
 
-  List<Announcement> _announcementsListFromSnapshot(QuerySnapshot snapshot) {
-    return snapshot.docs.map((doc) {
-      return Announcement(
-          date: doc.get('date') ?? DateTime(0),
-          text: doc.get('text') ?? '',
-          headline: doc.get('headline') ?? '',
-          time: doc.get('time') ?? DateTime(0));
-    }).toList();
-  }
 
   Event _eventDataFromSnapshot(DocumentSnapshot snapshot) {
     return Event(
@@ -351,10 +334,11 @@ class DatabaseService {
   }
 
   Stream<Profile> get profileData {
+    print("$uid");
     return userCollection
         .doc(uid)
         .collection("Profile")
-        .doc('ProfileData')
+        .doc("ProfileData")
         .snapshots()
         .map(_profileDataFromSnapshot);
   }
@@ -404,18 +388,7 @@ class DatabaseService {
         .map(_leaderboardDataFromSnapshot);
   }
 
-  Stream<List<Announcement>> get announcementsList {
-    return announcementsCollection
-        .snapshots()
-        .map(_announcementsListFromSnapshot);
-  }
 
-  Stream<Announcement> get announcementData {
-    return announcementsCollection
-        .doc(headline)
-        .snapshots()
-        .map(_announcementDataFromSnapshot);
-  }
 
   Stream<List<Event>> get eventsList {
     return eventsCollection.snapshots().map(_eventListFromSnapshot);

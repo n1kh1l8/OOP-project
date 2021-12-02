@@ -6,7 +6,7 @@ import 'package:abcd/models/profile.dart';
 import 'package:abcd/models/sponsor.dart';
 import 'package:abcd/models/user.dart';
 import 'package:abcd/screens/about_us/about_us_page.dart';
-import 'package:abcd/screens/announcements/announcements_page.dart';
+
 import 'package:abcd/screens/events/ChooseEvent.dart';
 import 'package:abcd/screens/history/history_page.dart';
 import 'package:abcd/screens/leaderboard/leaderboard_page.dart';
@@ -41,8 +41,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final user = Provider.of<UserClass?>(context);
 
+    Stream getProfile() async* {
+      yield await DatabaseService(uid: user!.uid).profileData;
+    }
+
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.brown[300],
       appBar: AppBar(
         backgroundColor: Colors.green,
         centerTitle: true,
@@ -183,25 +187,7 @@ class _HomeState extends State<Home> {
                         ),
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        _controller.animateToPage(6,
-                            duration: Duration(milliseconds: 1200),
-                            curve: Curves.easeInOut);
-                        Navigator.pop(context);
-                      },
-                      child: ListTile(
-                        leading: Icon(
-                          Icons.home,
-                          size: 26.0,
-                          color: Colors.white,
-                        ),
-                        title: Text(
-                          "Announcements",
-                          style: TextStyle(color: Colors.white, fontSize: 24.0),
-                        ),
-                      ),
-                    ),
+
                     GestureDetector(
                       onTap: () {
                         _controller.animateToPage(7,
@@ -242,13 +228,19 @@ class _HomeState extends State<Home> {
               initialData: <Event>[],
               child: Schedule()),
           StreamProvider<Profile>.value(
+              // value: DatabaseService(uid: "UxkvHxjg8dO9308l80qO3KzyX3K3")
+              //     .profileData,
               value: DatabaseService(uid: user!.uid).profileData,
+              catchError: (context, error) {
+                throw "$error";
+              },
+              // ignore: void_checks
               initialData: Profile(
-                  name: '',
-                  college: '',
-                  email_id: '',
-                  phone_no: '',
-                  gender: '',
+                  name: 'Name',
+                  college: 'College',
+                  email_id: 'Email ID',
+                  phone_no: '999999999',
+                  gender: 'M',
                   registration_nos: {},
                   events_registered: ''),
               child: ProfilePage()),
@@ -267,7 +259,6 @@ class _HomeState extends State<Home> {
               value: DatabaseService().sponsorsList,
               initialData: <Sponsor>[],
               child: Sponser()),
-          AnnouncementsPage(),
           AboutUsPage()
         ],
       ),

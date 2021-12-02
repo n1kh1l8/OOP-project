@@ -40,13 +40,27 @@ class _EventsTileState extends State<EventsTile> {
                           events_registered: ''),
                       child: EventDetails(event: widget.event))));
         },
-        child: Card(
-          margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
-          child: ListTile(
-            leading: CircleAvatar(
-              radius: 25.0,
+        child: Container(
+          height: 80,
+          child: Card(
+              elevation: 10,
+            margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
+
+            child: ListTile(
+
+              leading: CircleAvatar(
+
+               // radius: 20.0,
+                radius: 20,
+                backgroundColor: Colors.blue,
+                child: Icon(
+
+                  Icons.arrow_forward,
+                  color: Colors.grey[800],
+                ),
+              ),
+              title: Text(widget.event.name),
             ),
-            title: Text(widget.event.name),
           ),
         ),
       ),

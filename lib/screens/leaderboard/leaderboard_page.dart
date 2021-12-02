@@ -137,7 +137,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
         ),
         title: const Text('Leaderboard'),
         centerTitle: true,
-        backgroundColor: Colors.red[600],
+        backgroundColor: Colors.blue[600],
       ),
       body: Column(
         // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
